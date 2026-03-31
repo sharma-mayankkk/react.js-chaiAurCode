@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContextProvider'
 function Login() {
     // Local state for the input fields. This state is only relevant to the Login component.
     const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('') 
 
     // Step 4: Consume the context.
     // The `useContext` hook is the modern way to consume a context value.

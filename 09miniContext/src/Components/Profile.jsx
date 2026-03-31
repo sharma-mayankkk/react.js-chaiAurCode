@@ -14,7 +14,7 @@ function Profile() {
     // If `user` exists, it means the user has logged in (via the Login component).
     // The `Profile` component automatically re-renders when the `user` state changes in the context,
     // and it will now display the welcome message with the username.
-    return <div>Welcome {user.username}</div>
+    return <div>Welcome {user.username}</div> 
 }
 
 export default Profile
