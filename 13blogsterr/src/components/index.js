@@ -27,4 +27,5 @@ export {
     PostForm,
     PostCard,
     AuthLayout,
+    Select,
 }

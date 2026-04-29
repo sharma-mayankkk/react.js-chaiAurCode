@@ -59,11 +59,12 @@ function Signup() {
                         <Input
                             label="Email: "
                             placeholder="Enter your email"
-                            type='email'
+                            type="email"
                             {...register("email", {
-                                required: true,
+                                required: "Email is required",
                                 validate: {
-                                    matchPatern: (value) => /^\w+( [ .- ]?\w+)*@\w+([ .- ]?\w+)*(\.\w{2, 3})+$/.test(value) ||
+                                    matchPattern: (value) =>
+                                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
                                         "Email address must be a valid address"
                                 }
                             })}

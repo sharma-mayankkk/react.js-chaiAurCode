@@ -5,7 +5,7 @@ function Select({
     options,
     label,
     className,
-    ...porps,
+    ...porps
 }, ref) {
     const id = useId()
     return (

@@ -19,7 +19,13 @@ function Login() {
             const session = await authService.login(data)
             if (session) {
                 const userData = await authService.getCurrentUser()
-                if (userData) dispatch(authLogin(userData))
+                if (userData) dispatch(authLogin({
+                    userData: {
+                        $id: userData.$id,
+                        name: userData.name,
+                        email: userData.email,
+                    }
+                }))
                 navigate('/')
             }
         } catch (error) {
@@ -54,11 +60,12 @@ function Login() {
                         <Input
                             label="Email: "
                             placeholder="Enter your email"
-                            type='email'
+                            type="email"
                             {...register("email", {
-                                required: true,
+                                required: "Email is required",
                                 validate: {
-                                    matchPatern: (value) => /^\w+( [ .- ]?\w+)*@\w+([ .- ]?\w+)*(\.\w{2, 3})+$/.test(value) ||
+                                    matchPattern: (value) =>
+                                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
                                         "Email address must be a valid address"
                                 }
                             })}
@@ -67,13 +74,13 @@ function Login() {
                             label="Password"
                             type="password"
                             placeholder="Enter your password"
-                            {...register("password"), {
+                            {...register("password", {
                                 required: true,
-                            }}
+                            })}
                         />
                         <Button
-                        type = "submit"
-                        className="w-full"
+                            type="submit"
+                            className="w-full"
                         >Sign in</Button>
                     </div>
                 </form>
